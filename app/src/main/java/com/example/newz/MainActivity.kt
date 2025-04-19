@@ -1,60 +1,79 @@
 package com.example.newz
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.gestures.snapping.SnapPosition.Center
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.activity.viewModels
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.newz.data.ApiBuilder.ApiBuilder.ApiBuilder
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.newz.presentation.NewzViewModel.NewzViewModel
 import com.example.newz.presentation.navigation.Routes.AppNavigation
-import com.example.newz.presentation.screens.HomeScreenUI
 import com.example.newz.ui.theme.NewzTheme
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
-    @SuppressLint("CoroutineCreationDuringComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val viewmodel by viewModels<NewzViewModel>()
             NewzTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
-                    Column(modifier = Modifier.padding(it)) {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { paddingValues ->
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                    ) {
+                        // 🔝 Top Title
+                        Text(
+                            text = "The Newz App",
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier.padding(16.dp)
+                        )
 
-                        AppNavigation()
+                        // 🔝 Top Divider
+                        HorizontalDivider(color = Color.Cyan, thickness = 2.dp)
 
+                        // 🔁 Scrollable/Content Area
+                        Column(
+                            modifier = Modifier
+                                .weight(1f) // Takes up remaining space between top and bottom
+                                .fillMaxWidth()
+                        ) {
+                            AppNavigation(viewModel = viewModel())
+                        }
 
+                        // 🔻 Bottom Divider (just above bottom bar/footer)
+                        HorizontalDivider(color = Color.Red, thickness = 2.dp)
+
+                        // 🔻 Bottom footer content
+                        Text(
+                            text = "The Newz App",
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier
+                                .padding(16.dp)
+                        )
                     }
                 }
-                GlobalScope.launch {
-                    Log.d("ApiResponse", "onCreate: ${ApiBuilder.retrofitObject().getHeadLines()}")
-                }
-
             }
         }
     }
-
 
     @Preview(showBackground = true)
     @Composable
     fun GreetingPreview() {
         NewzTheme {
             Box(contentAlignment = Alignment.Center) {
-
-
+                Text("Preview")
             }
         }
     }
