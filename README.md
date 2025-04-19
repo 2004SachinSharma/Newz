@@ -8,7 +8,7 @@
 
 ### 📌 Screenshot
 <p align="center">
-  <img src="Screenshot_20250419_082429.png" alt="App Screenshot" width="100" height="200"/>
+  <img src="Screenshot_20250419_082429.png" alt="App Screenshot" width="200" height="400"/>
 </p>
 
 ---
