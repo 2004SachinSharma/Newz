@@ -37,7 +37,8 @@ class MainActivity : ComponentActivity() {
                         Text(
                             text = "The Newz App",
                             style = MaterialTheme.typography.titleLarge,
-                            modifier = Modifier.padding(16.dp)
+                            modifier = Modifier.padding(16.dp),
+                            color = Color(0xFFF10F5DC) // Beige
                         )
 
                         // 🔝 Top Divider
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
                         }
 
                         // 🔻 Bottom Divider (just above bottom bar/footer)
-                        HorizontalDivider(color = Color.Red, thickness = 2.dp)
+                        HorizontalDivider(color = Color(0xFFF10F5DC), thickness = 2.dp)
 
                         // 🔻 Bottom footer content
                         Text(

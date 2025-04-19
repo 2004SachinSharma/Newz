@@ -72,7 +72,7 @@ fun HomeScreenUI(
         Column(modifier = Modifier.fillMaxSize()) {
             Row {
                 OutlinedTextField(
-                    modifier = Modifier.width(390.dp),
+                    modifier = Modifier.width(  390.dp),
                     value = searchTerm.value,
                     onValueChange = {
                         searchTerm.value = it
