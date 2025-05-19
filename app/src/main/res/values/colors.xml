@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="GoogleBlue">#FF4285F4</color>
+    <color name="GoogleRed">#FFEA4335</color>
+    <color name="GoogleYellow">#FFFBBC05</color>
+    <color name="GoogleGreen">#FF34A853</color>
+
 </resources>

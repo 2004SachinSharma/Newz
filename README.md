@@ -6,10 +6,21 @@
 
 <h1 align="center">🗞️ It's Newz - The News App</h1>
 
-### 📌 Screenshot
+### 📌 Screenshots
+
+In Dark mode theme:
+
 <p align="center">
-  <img src="Screenshot_20250419_082429.png" alt="App Screenshot" width="200" height="400"/>
+  <img src="C:\Users\LOQ\AndroidStudioProjects\Newz\DarkThemeNewz.png" alt="App Screenshot" width="200" height="400"/>
 </p>
+
+In Light mode theme:
+
+
+<p align="center">
+  <img src="LightThemeNewz.png" alt="App Screenshot" width="200" height="400"/>
+</p>
+
 
 ---
 
@@ -59,18 +70,7 @@ implementation("com.squareup.okhttp3:okhttp:4.10.0")
 implementation("io.coil-kt.coil3:coil-compose:3.1.0")
 implementation("io.coil-kt.coil3:coil-network-okhttp:3.1.0")
 ```
-
----
-
-### 🛠️ Upcoming Improvements
-
-- [ ] Article Bookmarking
-- [ ] Category Filtering
-- [ ] Search Functionality
-- [ ] Detailed Article View
-- [ ] Custom Placeholder Images
-
----
+Note: "Please verify all the dependencies and plugins to ensure successful built of an app, kindly verify them from build.gradle.kts file"
 
 ### 🙌 Built With
 

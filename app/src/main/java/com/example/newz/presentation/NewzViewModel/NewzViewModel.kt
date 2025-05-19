@@ -2,14 +2,13 @@ package com.example.newz.presentation.NewzViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newz.data.ApiBuilder.ApiBuilder.ApiBuilder
-import com.example.newz.data.ApiState
 import com.example.newz.data.NewzRepo
 import com.example.newz.data.model.ApiResponse
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+
 
 class NewzViewModel :
     ViewModel() { // For making view model first inherit from ViewModel as done in this line
@@ -24,6 +23,20 @@ class NewzViewModel :
     fun getHeadLines(country: String = "us") {
         viewModelScope.launch {
             repo.getHeadLine(country).collectLatest {
+                if (it.loading == true) {
+                    _state.value = AppState(loading = true)
+                } else if (it.error.isNullOrBlank().not()) {
+                    _state.value = AppState(error = it.error)
+                } else {
+                    _state.value = AppState(data = it.data, loading = false)
+
+                }
+            }
+        }
+    }
+    fun getEverything(q: String = "us") {
+        viewModelScope.launch {
+            repo.getEverything(q).collectLatest {
                 if (it.loading == true) {
                     _state.value = AppState(loading = true)
                 } else if (it.error.isNullOrBlank().not()) {
