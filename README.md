@@ -11,7 +11,7 @@
 In Dark mode theme:
 
 <p align="center">
-  <img src="C:\Users\LOQ\AndroidStudioProjects\Newz\DarkThemeNewz.png" alt="App Screenshot" width="200" height="400"/>
+  <img src="DarkThemeNewz.png" alt="App Screenshot" width="200" height="400"/>
 </p>
 
 In Light mode theme:
